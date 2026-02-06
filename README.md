@@ -13,7 +13,7 @@ The code provides the necessary tools for Small Area Estimation (SAE) of proport
 * `R/boot_Dirichlet.R`: Function for obtaining the MSEs of the plug-in predictors.
 * `R/RealData.R`: Script with an example of use with real-world data.
 * `R/real.data.xlsx`: Excel file with the real data.
-* `Simulation/`: Scripts for reproducing the simulation studies presented in the manuscript.
+* `Simulations/`: Scripts for reproducing the simulation studies presented in the manuscript.
 
   
 ## 📊 Data Description
