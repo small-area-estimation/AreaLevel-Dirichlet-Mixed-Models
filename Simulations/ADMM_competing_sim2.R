@@ -2,7 +2,7 @@
 ###
 ###        Simulation experiment 2  Dirichlet regression ADMM, BFH-alr and MMM           
 ###                                                            
-###                            Janury 2026                         
+###                            January 2026                         
 ###
 ### Autor: Tomas and Esteban
 
