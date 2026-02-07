@@ -27,17 +27,12 @@ library(mme)
 
 library(nloptr)
 
-# options for the nloptr function
-# all_options <- nloptr.get.default.options()
-
-#opts <- list( "algorithm" = "NLOPT_GN_DIRECT_L", maxeval=1000)
 
 opts <- list( "algorithm" = "NLOPT_LN_NEWUOA_BOUND", maxeval=10000)
 
-#set.seed(19032005)
 set.seed(17032005)
 
-D <- 200     # number of areas
+D <- 50     # number of areas
 q <- 3      # number of categories
 
 beta.true <- rbind(c(-1/2,1),c(1,-1/3))    # vectors beta_k in rows
@@ -389,10 +384,10 @@ rownames(results) <- c("mud_1_ADMM", "mud_1_BFH-alr", "mud_1_MMM",
                        "Rd_ADMM", "Rd_BFH-alr", "Rd_MMM")
 
 
-write.table(results, file=paste0("Results/Sim2_Models_D=", D, ".txt"), sep="\t")
+#write.table(results, file=paste0("Results/Sim2_Models_D=", D, ".txt"), sep="\t")
 
 
-save(list=ls(), file=paste("Results/Sim2_Models_D=", D, ".Rdata", sep=""))
+#save(list=ls(), file=paste("Results/Sim2_Models_D=", D, ".Rdata", sep=""))
 
 
 #REd <- list(REd.Rd.in=REd.Rd.in, REd.Rd.ebp=REd.Rd.ebp, REd.Rd.in.ebp=REd.Rd.in.ebp, REd.mud.in=REd.mud.in, REd.mud.ebp=REd.mud.ebp)
@@ -400,6 +395,3 @@ save(list=ls(), file=paste("Results/Sim2_Models_D=", D, ".Rdata", sep=""))
 
 #save(REd, file=paste("Results/REd_D=", D, ".Rdata", sep=""))
 
-
-table <- read.table("Results/Sim2_Models_D=200.txt")
-library(xtable); xtable(table[,-(1:2)], digits = 4)
