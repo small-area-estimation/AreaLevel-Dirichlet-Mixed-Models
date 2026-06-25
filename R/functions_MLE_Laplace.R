@@ -3,11 +3,11 @@
 ### using Laplace approximation of log-likelihood 
 
 ### Autor: Tomas
-### Version: September 2024
+### Version: September 2026
 
 
 ### function calculating the score vector and the Hessian matrix
-### (defined on page 13 of the actual version of the paper)
+### (defined on page 9)
 
 ScoreHes <- function(u.k, beta, sigma, yy.d, X.dk, phi){
   
@@ -88,7 +88,7 @@ ScoreHes <- function(u.k, beta, sigma, yy.d, X.dk, phi){
   
   
   #  calculating the function hd(ud)    (formula (5.5))
-  log.g <- log(gamma(alpha))
+  log.g <- lgamma(alpha)
   hd <- (alpha-1) %*% log.y - sum(log.g) - sum(u.k^2)/2
   
   result <- list(Sd=Sd, Hd=Hd, hd=hd)
@@ -245,6 +245,10 @@ MLE_Laplace <- function(XX.k, yy, phi.d, beta.s, sigma.s, seeds.u, maxiter=1000,
     #print(res.opt)
     param.1 <- res.opt$solution
     
+    beta[[1]] <- param.1[1:p1]
+    beta[[2]] <- param.1[(p1+1):p]
+    sigma <- param.1[(p+1):(p+2)]
+    
     #### here we check the diference between iterations
     
     u.NR.0 <- Reduce(udk.NR.0, f=rbind)
@@ -300,7 +304,7 @@ hd.ud <- function(u.k, beta, sigma, yy.d, X.dk, phi){
   #sigma.v <- as.vector(Reduce(sigma, f=cbind))
   
   log.y <- log(yy.d)
-  log.g <- log(gamma(alpha))
+  log.g <- lgamma(alpha)
   
   hd <- (alpha-1) %*% log.y - sum(log.g) - sum(u.k^2)/2
   
