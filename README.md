@@ -35,4 +35,4 @@ The variables are structured as follows:
 * **Design and Precision Information:**
     * `nd`: Sample size in the domain $d$
     * `Nd`: Estimated population size of the domain $d$
-    * `varY*` and `covY*`: Variance and covariance estimates of the direct estimators.
+    * `varY` and `covY`: Variance and covariance estimates of the direct estimators.
